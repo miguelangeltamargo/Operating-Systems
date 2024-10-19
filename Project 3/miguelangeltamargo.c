@@ -2,7 +2,7 @@
 // Panther ID: 5866999
 // ################################################################################################
 // Assignment 3: Thread Solution
-// In this program we use multi threading approach to update a shared data between two threads
+// In this program we use multi-threading approach to update a shared data between two threads
 // Through mutex lock we are able to implement a solution to the crtitical section problem
 // This code follws the 3 rules of mutual exclusion, progress, and bounded wait.
 // ################################################################################################
