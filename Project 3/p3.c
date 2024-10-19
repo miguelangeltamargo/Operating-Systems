@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-int MAX = 4000000;
+int MAX = 2000000;
 
 struct counts
 {
@@ -21,18 +21,19 @@ struct counts
 
 void *count_up(void* arg){
     struct counts *data = (struct counts *)arg;
+    int i = 0;
 
-
-        for (int i = 0; i < MAX; i++)
+        while (i < MAX)
     {
         if (data->counter % 100 == 0)
         {
             data->counter += 100;
             data->bonus_counter += 1;
+            i+=100;
         } else{
             data->counter +=1;
+            i+=1;
         }
-        
     }
 
     return NULL;
