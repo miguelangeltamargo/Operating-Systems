@@ -1,26 +1,68 @@
+// Name: Miguelangel Tamargo
+// Panther ID: 5866999
+// ################################################################################################
+// Assignment 3: Deadlock
+// 
+// 
+// 
+// ################################################################################################
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
 
-
 int MAX = 4000000;
-int main(int argc, char const *argv[])
-{
-    int counter = 0;
-    int bonus_counter = 0;
 
-    for (int i = 0; i < MAX; i++)
+struct counts
+{
+    int counter;
+    int bonus_counter;
+};
+
+
+void *count_up(void* arg){
+    struct counts *data = (struct counts *)arg;
+
+
+        for (int i = 0; i < MAX; i++)
     {
-        if (counter % 100 == 0)
+        if (data->counter % 100 == 0)
         {
-            counter += 100;
-            bonus_counter += 1;
+            data->counter += 100;
+            data->bonus_counter += 1;
         } else{
-            counter +=1;
+            data->counter +=1;
         }
         
     }
-    printf("Reached 4Mil: %d\nThe bonus counter was %d\n", counter, bonus_counter);
+
+    return NULL;
+}
+
+int main(int argc, char const *argv[])
+{
+    pthread_t tid[2];
+    int rc;
+    
+    struct counts counters;
+    counters.counter = 0;
+    counters.bonus_counter = 0;
+
+    pthread_t thread;
+    int err;
+
+    err = pthread_create(&thread, NULL, count_up, (void *)&counters);
+    if (err) {
+        printf("Error creating thread\n");
+        return 1;
+    }
+
+    printf("Starting Thread: %lu\n\n", (unsigned long)thread);
+    printf("Waiting for the thread to end...\n\n");
+
+    pthread_join(thread, NULL);
+
+    printf("Ending Thread: %lu\n", (unsigned long)thread);
+    printf("Counter Finished at: %d\nThe bonus counter was %d\n", counters.counter, counters.bonus_counter);
 
     return 0;
 }
