@@ -91,16 +91,20 @@ int main(int argc, char const *argv[])
         printf("Error occured when initialize pthread_attr_t.");
         exit(0);
     }
+    if (pthread_attr_setscope(&attr, PTHREAD_SCOPE_SYSTEM)){
+        fprintf(stderr, "Error occured when setting scope\n");
+        exit(0);
+    }
 
     /* Create thread1 */
-    if ((err = pthread_create(&threads[0], NULL, &thread1_funct, NULL)))
+    if ((err = pthread_create(&threads[0], &attr, &thread1_funct, NULL)))
     {
         fprintf(stderr, "ERROR: pthread_create, Code: %d\n", err);
         exit(0);
     }
 
     /* Create thread2 */
-    if ((err = pthread_create(&threads[1], NULL, &thread2_funct, NULL)))
+    if ((err = pthread_create(&threads[1], &attr, &thread2_funct, NULL)))
     {
         fprintf(stderr, "ERROR: pthread_create, Code: %d\n", err);
         exit(0);
@@ -115,26 +119,16 @@ int main(int argc, char const *argv[])
         }
     }
 
+    printf("From parent counter = %d\n", counter->value);
+
     /* Clean up */
     pthread_mutex_destroy(&mutex);
+    pthread_attr_destroy(&attr);
     free(counter);
     pthread_exit(NULL);
 
-    printf("From parent: counter = %d\n", counter->value);
-
     return 0;
 }
-
-//Task 1:
-// create 2 threads
-// share data structure called counter; each will increment toi a total of 2 mil
-// each thread increments to a total of 2 mil but the counter itselff will be a total of 4 mill
-// count must be 2mill for both threads
-// t1 has advantage. when tw reaches a value of multiplier of 100 it ccan make a hundred of 100 updates
-// must keep track of how many times this bonus jump occurs
-// Thread2 gets no bonus
-// synchronize the counter, which is the Critical section
-// semaophore usage
 
 // Task 2:
 // proof that implementation is a solution to critical section section
