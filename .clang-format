@@ -1,0 +1,7 @@
+BasedOnStyle: WebKit
+IndentWidth: 4
+UseTab: Never
+BreakBeforeBraces: Attach  # K&R style brace placement
+AllowShortIfStatementsOnASingleLine: true
+ColumnLimit: 100
+SpaceBeforeParens: ControlStatements
