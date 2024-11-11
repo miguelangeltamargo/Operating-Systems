@@ -6,7 +6,7 @@ The Banker:
 
 The banker evaluates requests from n customers for m types of resources. To manage resources effectively, the banker maintains the following data structures:
 
-#define NUMBER_OF_CUSTOMERS 5
+```#define NUMBER_OF_CUSTOMERS 5
 #define NUMBER_OF_RESOURCES 4
 
 /* The available amount of each resource */
@@ -20,13 +20,14 @@ int allocation[NUMBER_OF_CUSTOMERS][NUMBER_OF_RESOURCES];
 
 /* The remaining need of each customer */
 int need[NUMBER_OF_CUSTOMERS][NUMBER_OF_RESOURCES];
-
+```
 The banker grants a request if it adheres to the safety algorithm. Requests that jeopardize system safety are denied. Function prototypes for requesting and releasing resources are defined as follows:
 
-int request_resources(int customer_num, int request[]);
+```int request_resources(int customer_num, int request[]);
 void release_resources(int customer_num, int release[]);
+```
 
-The request_resources() function returns 0 upon successful allocation and -1 upon failure.
+The ```request_resources()``` function returns 0 upon successful allocation and -1 upon failure.
 
 Testing Your Implementation:
 
@@ -38,12 +39,12 @@ Invoke your program by passing the number of resources of each type through the 
 
 The available array will be initialized with these values. Initially, the program reads a file containing the maximum number of requests for each customer. For example, if there are five customers and four resources, the input file format is as follows:
 
-6,4,7,3
+```6,4,7,3
 4,2,3,2
 2,5,3,3
 6,3,3,2
 5,6,7,5
-
+```
 Each line in the input file represents the maximum request of each resource type for each customer. The program initializes the maximum array accordingly.
 
 The user then enters commands to request resources, release resources, or display the current values of the data structures. Use 'RQ' for requesting resources, 'RL' for releasing resources, and ' * ' to output the values of the different data structures. For instance, to request resources (3, 1, 2, 1) for customer 0, enter the following command:
@@ -56,7 +57,7 @@ The program outputs whether the request would be satisfied or denied based on th
 
 Finally, entering the command ' * ' outputs the values of the available, maximum, allocation, and need arrays.
 
-Sample execution output (THIS IS JUST AN EXAMPLE):
+## Sample execution output (THIS IS JUST AN EXAMPLE):
 
 ```Welcome to the Banker's Algorithm Simulation
 
