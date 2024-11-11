@@ -30,3 +30,5 @@ Final state of memory: 1 0 7
 | **Correct LRU Logic**                  |     ✅     |    _    |      _       |
 | **Correct LRU Number of Page Faults**  |     ✅     |    _    |      _       |
 | **Correct LRU Final Memory State**     |     ✅     |    _    |      _       |
+| **Added Meaningful Comments**          |     _     |    ⏳    |      _       |
+| **Created a Report PDF discussing design choices**     |     _     |    ⏳    |      _       |
