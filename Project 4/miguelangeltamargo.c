@@ -197,7 +197,7 @@ int request_resources(int customer_num, int request[]) {
     // Check if Request <= Need
     for (int i = 0; i < NUMBER_OF_RESOURCES; i++) {
         if (request[i] > need[customer_num][i]) {
-            printf("Error: Process has exceeded its maximum claim for resource %d\n", i);
+            printf("Request denied: exceeds its maximum claim for resource \n");
             return -1; // Return failure
         }
     }
