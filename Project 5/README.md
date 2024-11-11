@@ -19,10 +19,10 @@ Final state of memory: 1 0 7
 ### Feature Checklist
 
 | Feature                                | Completed | Started | Not Completed |
-|-----------------------------------------|------------|----------|--------|
-| **Correct FIFO Logic**                  | _ | _ | 🚩 |
-| **Correct FIFO Number of Page Faults**  | _ | _ | 🚩 |
-| **Correct FIFO Final Memory State**     | _ | _ | 🚩 |
-| **Correct LRU Logic**                   | _ | _ | 🚩 |
-| **Correct LRU Number of Page Faults**   | _ | _ | 🚩 |
-| **Correct LRU Final Memory State**      | _ | _ | 🚩 |
+|----------------------------------------|:---------:|:-------:|:-------------:|
+| **Correct FIFO Logic**                 |     _     |    _    |      🚩       |
+| **Correct FIFO Number of Page Faults** |     _     |    _    |      🚩       |
+| **Correct FIFO Final Memory State**    |     _     |    _    |      🚩       |
+| **Correct LRU Logic**                  |     _     |    _    |      🚩       |
+| **Correct LRU Number of Page Faults**  |     _     |    _    |      🚩       |
+| **Correct LRU Final Memory State**     |     _     |    _    |      🚩       |
